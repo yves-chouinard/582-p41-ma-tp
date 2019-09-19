@@ -1,0 +1,244 @@
+$rouge-chc: #af1e2d;
+$bleu-chc: #192168;
+$grise: #f8f8f8;
+$grise-bleu: #fcfdff;
+$grise-rouge: #fffcfd;
+
+$couleur-texte: #333;
+$couleur-fond: $bleu-chc;
+$couleur-bouton: $rouge-chc;
+
+$largeur-max: 1000px;
+
+* {
+    box-sizing: border-box;
+}
+
+a, button, input, textarea {
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+a {
+    color: $couleur-texte;
+    text-decoration: none;
+    
+    &:hover {
+        color: black;
+        text-decoration: underline;        
+    }
+}
+
+body {
+	margin: 0;    
+    > * { padding: 10px }
+    font-family: 'Raleway', Arial, sans-serif;
+        
+    /*
+        Footer toujours au bas de l'écran, même s'il n'y a pas assez de contenu pour remplir la page.
+    */
+    
+    min-height: 100vh;    
+    display: flex;
+    flex-direction: column;
+    > main { flex-grow: 1 }
+    
+    > header {
+        background: linear-gradient(rgba(25,33,104,.85), rgba(25,33,104,.85)), url(images/GettyImages-6301664901-1024x682.jpg);
+        
+        font-size: 1rem;
+        color: white;
+        background-size: cover;
+
+        .titre-site {
+            text-align: center;
+            font-size: 24pt;
+            font-weight: bold;
+            margin: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            > :not(:last-child) { margin-right: 20px }
+            .session { margin-left: auto } // Complètement à droite
+        }
+        
+        a {
+            color: white;
+            &:hover { color: $grise }
+        }
+    }
+
+    > main {
+        font-size: 1rem;
+        color: $couleur-texte;
+        background-color: white;
+        h1 { font-size: 1.7rem }
+    }
+    
+    > footer {
+        font-size: 0.75rem;
+        color: white;
+        background-color: $couleur-fond;
+    }
+}
+
+/* Messages sous le titre */
+.message-succes {
+    font-weight: bold;
+    color: green;
+}
+
+.message-erreur {
+    font-weight: bold;
+    color: red;
+}
+
+/* Marges entre les articles */
+.liste-articles {
+    display: grid;
+    grid-template-columns: auto;
+    grid-row-gap: 10px;
+}
+
+/* Chaque article (sujet ou réponse) est encadré et grisé */
+article {
+    border: 3px solid $bleu-chc;
+    background-color: $grise-bleu;
+    padding: 10px;
+    
+    /* Le header contient le titre et l'auteur. */
+    header {
+        display: grid;
+        grid-column: auto;
+        grid-row-gap: 5px;
+        
+        .titre { font-size: 1.3rem }
+        .auteur { font-style: italic }        
+    }
+    
+    /* Pour la page de liste des sujets */
+    &.sujet-resume {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        > :not(:last-child) { margin-right: 10px }
+        header { flex-grow: 1 }
+    }
+    
+    /* En rouge plutôt qu'en bleu pour le sujet principal */
+    &.sujet {
+        background-color: $grise-rouge;
+        border: 3px solid $rouge-chc;        
+    }    
+}    
+
+/* Formulaires */
+form {
+    border: 3px solid $bleu-chc;
+    background-color: $grise-bleu;
+    padding: 10px;
+    margin: 0;
+    
+    /* Contient le label, le champ input et le message d'erreur */
+    .groupe-form {
+        /* Label au-dessus du champ input */
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        input[type=text], input[type=password] {
+            width: 100%;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 15rem;
+        }
+    
+        /* Message d'erreur sous le champ input */
+        .erreur-form {
+            display: block;
+            font-weight: bold;
+            color: red;
+            margin-top: 5px;
+        }
+        
+        margin-bottom: 10px;
+    }
+}
+
+/* Pour la page d'administration des usagers */
+table.usagers {
+    width: 100%;
+    padding: 10px;
+    background-color: $grise-bleu;
+    border: 3px solid $bleu-chc;
+    
+    thead tr { margin: 10px 0 }
+    
+    tr {
+        display: grid;
+        grid-template-columns: 3fr 1fr 1fr;
+        align-items: center;
+    }
+    
+    th, td {
+        text-align: left;
+        &.bouton { text-align: center }
+    }
+    
+    .statut-actif {
+        font-weight: bold;
+        color: green;
+    }
+    
+    .statut-banni {
+        font-weight: bold;
+        color: red;
+    }    
+}
+
+/* Style de bouton cool */
+button, input[type=submit] {
+    background-color: white;
+    border: 3px solid $couleur-bouton;
+    border-radius: 30px;
+    padding: 10px;
+    margin: 10px 0;
+
+    font-family: inherit;
+    font-size: 1rem;
+    color: $couleur-texte;
+
+    transition: background-color 0.5s, color 0.5s;
+    
+    &:hover, &:focus {
+        background-color: $couleur-bouton;
+        color: white;
+        outline: none;
+    }
+    
+    &:active {
+        transform: scale(0.99);
+    }
+}
+
+/* Bouton poubelle pour les administrateurs */
+.fa-trash-alt {
+    font-size: 1.5rem;
+    color: gray;
+    transition: color 0.2s, transform 0.2s;
+    
+    &:hover {
+        color: $couleur-texte;
+        transform: scale(1.1);
+    }
+    
+    &:active {
+        transform: scale(1.05);
+    }
+}

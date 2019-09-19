@@ -1,0 +1,274 @@
+@charset "UTF-8";
+/* line 13, style.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 17, style.scss */
+a, button, input, textarea {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* line 22, style.scss */
+a {
+  color: #333;
+  text-decoration: none;
+}
+/* line 26, style.scss */
+a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+/* line 32, style.scss */
+body {
+  margin: 0;
+  font-family: 'Raleway', Arial, sans-serif;
+  /*
+      Footer toujours au bas de l'écran, même s'il n'y a pas assez de contenu pour remplir la page.
+  */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* line 34, style.scss */
+body > * {
+  padding: 10px;
+}
+/* line 44, style.scss */
+body > main {
+  flex-grow: 1;
+}
+/* line 46, style.scss */
+body > header {
+  background: linear-gradient(rgba(25, 33, 104, 0.85), rgba(25, 33, 104, 0.85)), url(images/GettyImages-6301664901-1024x682.jpg);
+  font-size: 1rem;
+  color: white;
+  background-size: cover;
+}
+/* line 53, style.scss */
+body > header .titre-site {
+  text-align: center;
+  font-size: 24pt;
+  font-weight: bold;
+  margin: 20px;
+}
+/* line 60, style.scss */
+body > header nav {
+  display: flex;
+  justify-content: space-between;
+}
+/* line 63, style.scss */
+body > header nav > :not(:last-child) {
+  margin-right: 20px;
+}
+/* line 64, style.scss */
+body > header nav .session {
+  margin-left: auto;
+}
+/* line 67, style.scss */
+body > header a {
+  color: white;
+}
+/* line 69, style.scss */
+body > header a:hover {
+  color: #f8f8f8;
+}
+/* line 73, style.scss */
+body > main {
+  font-size: 1rem;
+  color: #333;
+  background-color: white;
+}
+/* line 77, style.scss */
+body > main h1 {
+  font-size: 1.7rem;
+}
+/* line 80, style.scss */
+body > footer {
+  font-size: 0.75rem;
+  color: white;
+  background-color: #192168;
+}
+
+/* Messages sous le titre */
+/* line 88, style.scss */
+.message-succes {
+  font-weight: bold;
+  color: green;
+}
+
+/* line 93, style.scss */
+.message-erreur {
+  font-weight: bold;
+  color: red;
+}
+
+/* Marges entre les articles */
+/* line 99, style.scss */
+.liste-articles {
+  display: grid;
+  grid-template-columns: auto;
+  grid-row-gap: 10px;
+}
+
+/* Chaque article (sujet ou réponse) est encadré et grisé */
+/* line 106, style.scss */
+article {
+  border: 3px solid #192168;
+  background-color: #fcfdff;
+  padding: 10px;
+  /* Le header contient le titre et l'auteur. */
+  /* Pour la page de liste des sujets */
+  /* En rouge plutôt qu'en bleu pour le sujet principal */
+}
+/* line 112, style.scss */
+article header {
+  display: grid;
+  grid-column: auto;
+  grid-row-gap: 5px;
+}
+/* line 117, style.scss */
+article header .titre {
+  font-size: 1.3rem;
+}
+/* line 118, style.scss */
+article header .auteur {
+  font-style: italic;
+}
+/* line 122, style.scss */
+article.sujet-resume {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* line 126, style.scss */
+article.sujet-resume > :not(:last-child) {
+  margin-right: 10px;
+}
+/* line 127, style.scss */
+article.sujet-resume header {
+  flex-grow: 1;
+}
+/* line 131, style.scss */
+article.sujet {
+  background-color: #fffcfd;
+  border: 3px solid #af1e2d;
+}
+
+/* Formulaires */
+/* line 138, style.scss */
+form {
+  border: 3px solid #192168;
+  background-color: #fcfdff;
+  padding: 10px;
+  margin: 0;
+  /* Contient le label, le champ input et le message d'erreur */
+}
+/* line 145, style.scss */
+form .groupe-form {
+  /* Label au-dessus du champ input */
+  /* Message d'erreur sous le champ input */
+  margin-bottom: 10px;
+}
+/* line 147, style.scss */
+form .groupe-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+/* line 153, style.scss */
+form .groupe-form input[type=text], form .groupe-form input[type=password] {
+  width: 100%;
+}
+/* line 157, style.scss */
+form .groupe-form textarea {
+  width: 100%;
+  height: 15rem;
+}
+/* line 163, style.scss */
+form .groupe-form .erreur-form {
+  display: block;
+  font-weight: bold;
+  color: red;
+  margin-top: 5px;
+}
+
+/* Pour la page d'administration des usagers */
+/* line 175, style.scss */
+table.usagers {
+  width: 100%;
+  padding: 10px;
+  background-color: #fcfdff;
+  border: 3px solid #192168;
+}
+/* line 181, style.scss */
+table.usagers thead tr {
+  margin: 10px 0;
+}
+/* line 183, style.scss */
+table.usagers tr {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  align-items: center;
+}
+/* line 189, style.scss */
+table.usagers th, table.usagers td {
+  text-align: left;
+}
+/* line 191, style.scss */
+table.usagers th.bouton, table.usagers td.bouton {
+  text-align: center;
+}
+/* line 194, style.scss */
+table.usagers .statut-actif {
+  font-weight: bold;
+  color: green;
+}
+/* line 199, style.scss */
+table.usagers .statut-banni {
+  font-weight: bold;
+  color: red;
+}
+
+/* Style de bouton cool */
+/* line 206, style.scss */
+button, input[type=submit] {
+  background-color: white;
+  border: 3px solid #af1e2d;
+  border-radius: 30px;
+  padding: 10px;
+  margin: 10px 0;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #333;
+  transition: background-color 0.5s, color 0.5s;
+}
+/* line 219, style.scss */
+button:hover, button:focus, input[type=submit]:hover, input[type=submit]:focus {
+  background-color: #af1e2d;
+  color: white;
+  outline: none;
+}
+/* line 225, style.scss */
+button:active, input[type=submit]:active {
+  transform: scale(0.99);
+}
+
+/* Bouton poubelle pour les administrateurs */
+/* line 231, style.scss */
+.fa-trash-alt {
+  font-size: 1.5rem;
+  color: gray;
+  transition: color 0.2s, transform 0.2s;
+}
+/* line 236, style.scss */
+.fa-trash-alt:hover {
+  color: #333;
+  transform: scale(1.1);
+}
+/* line 241, style.scss */
+.fa-trash-alt:active {
+  transform: scale(1.05);
+}
